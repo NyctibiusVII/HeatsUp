@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -webkit-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -moz-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -ms-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -o-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+:root {
+
+    --white    : #fff;
+    --grey-100 : #E1E1E6;
+    --grey-200 : #C4C4CC;
+    --grey-300 : #8D8D99;
+    --grey-400 : #29292E;
+
+    --black-100 : #202024;
+    --black-200 : #1B1B1F;
+    --black-300 : #17171A;
+    --black-400 : #121214;
+    --black-500 : #09090A;
+    --black     : #000;
+    --black-gradient-100 : #12121400;
+
+    --yellow : #FFCD1E;
+    --orange : #FF7A29;
+    --pink   : #FF008E;
+    --green  : #1B873F;
+    --deg-py : linear-gradient(104.3deg, var(--pink) 0.48%, var(--yellow) 100%);
+
+    --pink-100 : #ff3d6e;
+
+    /* ~~~~~~~~~~~~~~~~~ Geral ~~~~~~~~~~~~~~~~~ */
+    --shadow-5p      : rgb(0 0 0 / 5%);
+    --shadow-1p      : rgb(0 0 0 / 1%);
+
+    /* ~~~~~~~~~~~~~~~ JSON Code ~~~~~~~~~~~~~~~ */
+    /* Colors ~ Dracula Theme */
+    --code-background : #282A36;
+    --code-foreground : #F8F8F2;
+    --code-selection  : #44475A;
+    --code-comment    : #6272A4;
+    --code-red        : #FF5555;
+    --code-orange     : #FFB86C;
+    --code-yellow     : #F1FA8C;
+    --code-green      : #50FA7B;
+    --code-purple     : #BD93F9;
+    --code-cyan       : #8BE9FD;
+    --code-pink       : #FF79C6;
+}
+[data-theme='light'] {
+    /* ~~~~~~~~~~~~~~~~~ Geral ~~~~~~~~~~~~~~~~~ */
+    --background               : var(--black-400);
+    --line                     : var(--code-selection);
+    --title                    : var(--blue-1200);
+    --text                     : var(--code-foreground);
+    /* Scrollbar ------------ */
+    --scrollbar-bg             : transparent;
+    --scrollbar-thumb-bg       : var(--pink);
+    --scrollbar-corner-bg      : transparent;
+    /* Theme Changer ------------ */
+    --tc-background            : var(--grey-100);
+
+    /* ~~~~~~~~~~~~ Content Wrapper ~~~~~~~~~~~~ */
+    --cw-background : var(--black-400);
+
+    /* ~~~~~~~~~~~~~~~ Login Box ~~~~~~~~~~~~~~~ */
+    --lb-background        : var(--black-300);
+    --lb-background-before : radial-gradient(50% 50% at 50% 50%, var(--pink-100) 0%, var(--black-gradient-100) 100%);
+
+    /* ~~~~~~~~~~~~~ Github Button ~~~~~~~~~~~~~ */
+    --gb-background : var(--yellow);
+    --gb-foreground : var(--black-500);
+
+    /* ~~~~~~~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~ */
+    --m-border-user-img : var(--black-400);
+
+    /* ~~~~~~~~~~~~~ Message Form ~~~~~~~~~~~~~~ */
+    --mf-background                : var(--black-200);
+    --mf-bg-btn-sign-out           : transparent;
+    --mf-fg-btn-sign-out           : var(--grey-200);
+    --mf-border-user-img           : var(--black-400);
+    --mf-fg-username               : var(--grey-200);
+    --mf-bg-sm-form                : var(--black-100);
+    --mf-bg-sm-label               : var(--grey-400);
+    --mf-bg-sm-txtarea             : transparent;
+    --mf-fg-sm-txtarea             : var(--grey-100);
+    --mf-fg-sm-txtarea-placeholder : var(--grey-300);
+    --mf-bg-sm-btn                 : var(--pink);
+    --mf-fg-sm-btn                 : var(--white);
+}
+[data-theme='dark'] {
+    /* ~~~~~~~~~~~~~~~~~ Geral ~~~~~~~~~~~~~~~~~ */
+    --background               : var(--black-400);
+    --line                     : var(--code-selection);
+    --title                    : var(--blue-1200);
+    --text                     : var(--code-foreground);
+    /* Scrollbar ------------ */
+    --scrollbar-bg             : transparent;
+    --scrollbar-thumb-bg       : var(--pink);
+    --scrollbar-corner-bg      : transparent;
+    /* Theme Changer ------------ */
+    --tc-background            : var(--grey-100);
+
+    /* ~~~~~~~~~~~~ Content Wrapper ~~~~~~~~~~~~ */
+    --cw-background : var(--black-400);
+
+    /* ~~~~~~~~~~~~~~~ Login Box ~~~~~~~~~~~~~~~ */
+    --lb-background        : var(--black-300);
+    --lb-background-before : radial-gradient(50% 50% at 50% 50%, var(--pink-100) 0%, var(--black-gradient-100) 100%);
+
+    /* ~~~~~~~~~~~~~ Github Button ~~~~~~~~~~~~~ */
+    --gb-background : var(--yellow);
+    --gb-foreground : var(--black-500);
+
+    /* ~~~~~~~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~ */
+    --m-border-user-img : var(--black-400);
+
+    /* ~~~~~~~~~~~~~ Message Form ~~~~~~~~~~~~~~ */
+    --mf-background                : var(--black-200);
+    --mf-bg-btn-sign-out           : transparent;
+    --mf-fg-btn-sign-out           : var(--grey-200);
+    --mf-border-user-img           : var(--black-400);
+    --mf-fg-username               : var(--grey-200);
+    --mf-bg-sm-form                : var(--black-100);
+    --mf-bg-sm-label               : var(--grey-400);
+    --mf-bg-sm-txtarea             : transparent;
+    --mf-fg-sm-txtarea             : var(--grey-100);
+    --mf-fg-sm-txtarea-placeholder : var(--grey-300);
+    --mf-bg-sm-btn                 : var(--pink);
+    --mf-fg-sm-btn                 : var(--white);
+}
+
+
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+}
+
+body,
+button,
+input,
+textarea { font: 400 1rem "inter", sans-serif; }
+
+button { cursor: pointer; }
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+ol,
+ul {
+    padding-left: 0;
+
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+
+/* Scrollbar */
+/*  ::-webkit-scrollbar              { /* 1 *-/ }  */
+/*  ::-webkit-scrollbar-button       { /* 2 *-/ }  */
+/*  ::-webkit-scrollbar-track        { /* 3 *-/ }  */
+/*  ::-webkit-scrollbar-track-piece  { /* 4 *-/ }  */
+/*  ::-webkit-scrollbar-thumb        { /* 5 *-/ }  */
+/*  ::-webkit-scrollbar-corner       { /* 6 *-/ }  */
+/*  ::-webkit-resizer                { /* 7 *-/ }  */
+
+
+
+/* 1 */
+::-webkit-scrollbar {
+    width:  0.438rem;
+    background: var(--scrollbar-bg);
+
+    :horizontal {
+        height: 0.438rem;
+        background: var(--scrollbar-bg);
+    }
+}
+/* 5 */
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-bg);
+
+    border-radius: 0.313rem;
+    -webkit-border-radius: 0.313rem;
+    -moz-border-radius: 0.313rem;
+    -ms-border-radius: 0.313rem;
+    -o-border-radius: 0.313rem;
+}
+/* 6 */
+::-webkit-scrollbar-corner { background: var(--scrollbar-corner-bg); }

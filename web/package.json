@@ -1,0 +1,43 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "description": "Projeto web construído durante o NLW#07 com a Rocketseat/Diego Fernandes. HEATSUP: 'Chat de aquecimento pré evento'. 🤩💬🤸‍♀️",
+  "private": true,
+  "scripts": {
+    "dev-web": "next dev",
+    "build": "next build",
+    "postbuild": "next-sitemap --config sitemap.js",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NyctibiusVII/HeatsUp.git"
+  },
+  "keywords": [],
+  "author": "NyctibiusVII",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NyctibiusVII/HeatsUp/issues"
+  },
+  "homepage": "https://github.com/NyctibiusVII/HeatsUp#readme",
+  "dependencies": {
+    "axios": "^0.23.0",
+    "framer-motion": "^4.1.17",
+    "next": "11.1.2",
+    "next-themes": "0.0.15",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
+    "sass": "^1.43.2",
+    "socket.io-client": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.30",
+    "@types/react-dom": "^17.0.9",
+    "eslint": "^8.0.1",
+    "eslint-config-next": "11.1.2",
+    "next-sitemap": "^1.6.189",
+    "typescript": "4.4.4"
+  }
+}

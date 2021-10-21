@@ -15,9 +15,7 @@ const serverHttp = http.createServer(app)
 const io = new Server(serverHttp, {
     cors: { origin: '*' } // - Coringa para todas as origens
 })
-io.on('connection', socket => {
-    console.log(`Usuario conectado ${socket.id}`)
-})
+io.on('connection', socket => console.log(`Usuario conectado ${socket.id}`))
 
 app.use(express.json())
 app.use(router)

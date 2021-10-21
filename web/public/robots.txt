@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /__tests__
+
+# Host
+Host: https://heatsup-nyctibiusvii.vercel.app
+
+# Sitemaps
+Sitemap: https://heatsup-nyctibiusvii.vercel.app/sitemap.xml

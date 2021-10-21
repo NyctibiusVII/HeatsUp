@@ -127,13 +127,14 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## Rodando o projeto 🚴🏻‍♂️
 #### "Só vou dar uma olhadinha...":
-  <a href="https://heatsup-nyctibiusvii.vercel.app/">⏰ Site hospedado na Vercel 🏆</a>
+  <a href="https://heatsup-nyctibiusvii.vercel.app/">💬 Site hospedado na Vercel 🤸‍♀️</a>
 
 #### Na sua maquina:
 <details>
     <summary>Dependências</summary>
 
 ```json
+  ------- NODE -------
   "dependencies": {
     "@prisma/client": "^3.2.1",
     "axios": "^0.23.0",
@@ -153,6 +154,23 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.4.4"
   }
+
+  ------- WEB -------
+  "dependencies": {
+    "next": "11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.30",
+    "eslint": "8.0.1",
+    "eslint-config-next": "11.1.2",
+    "typescript": "4.4.4"
+  }
+
+  ------- MOBILE -------
+  "dependencies": {},
+  "devDependencies": {}
 ```
 > Ex: `$ npm install _____` para instalar as dependências
 
@@ -171,10 +189,28 @@ $ cd heatsup
 # Instale as dependências
 $ npm install
 
-# Execute o script "dev"
-$ npm run dev
+# ------- PARA NODE -------
+# Acesse a pasta do projeto no prompt de comando
+$ cd node
 
-# O projeto inciará na porta: 3000 - acesse http://localhost:3000
+# Execute o script "dev-node"
+$ npm run dev-node
+
+# ------- PARA WEB -------
+# Acesse a pasta do projeto no prompt de comando
+$ cd web
+
+# Execute o script "dev-web"
+$ npm run dev-web
+
+# ------- PARA MOBILE -------
+# Acesse a pasta do projeto no prompt de comando
+$ cd mobile
+
+# Execute o script "dev-mobile"
+$ npm run dev-mobile
+
+# Cada projeto inicia na porta: 3000 - acesse http://localhost:3000 *Ex: Cuidado para não ligar dois ou mais projetos na mesma porta, pois o servidor pode não iniciar.
 ```
 
 ## Contribuição 💭

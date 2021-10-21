@@ -4,7 +4,8 @@
   "description": "Projeto web construído durante o NLW#07 com a Rocketseat/Diego Fernandes. HEATSUP: 'Chat de aquecimento pré evento'. 🤩💬🤸‍♀️",
   "main": "index.ts",
   "scripts": {
-    "dev-node": "ts-node-dev --transpile-only --ignore-watch node_modules node/src/server.ts",
+    "dev-node": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
+    "dev": "ts-node-dev --exit-child src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
