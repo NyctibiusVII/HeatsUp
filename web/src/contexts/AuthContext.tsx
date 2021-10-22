@@ -3,7 +3,6 @@
 import {
     createContext,
     PropsWithChildren,
-    useContext,
     useEffect,
     useState
 } from 'react'
@@ -11,6 +10,19 @@ import { api } from '../services/api'
 
 /* ---------------------------------------------------------------------- */
 
+type User = {
+    id:         string
+    name:       string
+    login:      string
+    avatar_url: string
+}
+type AuthContextType = {
+    user:          User | null
+    isSigningIn:   boolean
+    signInUrl:     string
+    signOut: () => Promise<void>
+}
+type AuthContextProviderProps = PropsWithChildren<{}>
 type AuthResponse = {
     token: string
     user: {
@@ -21,39 +33,28 @@ type AuthResponse = {
     }
 }
 type ProfileResponse = AuthResponse['user']
-type User = {
-    id:         string
-    name:       string
-    login:      string
-    avatar_url: string
-}
-type AuthProviderProps = PropsWithChildren<{}>
-type AuthContextData = {
-    user:          User | null
-    isSigningIn:   boolean
-    signInUrl:     string
-    signOut: () => Promise<void>
-}
 
-const AuthContext = createContext({} as AuthContextData)
+export const AuthContext = createContext({} as AuthContextType)
 
-export function AuthProvider({ children }: AuthProviderProps) {
+export function AuthContextProvider({ children }: AuthContextProviderProps) {
     const [ user,        setUser        ] = useState<User | null>(null)
     const [ isSigningIn, setIsSigningIn ] = useState(false)
 
-    const clientId = "f0263884eb3692b28c6d"
+    const CLIENT_ID     = 'f0263884eb3692b28c6d'
+    const SCOPE         = 'read:user'
+    const TOKEN_STORAGE = '@heatsup:token'
 
-    const signInUrl = `https://github.com/login/oauth/authorize?scope=user&client_id=${clientId}`
+    const signInUrl = `https://github.com/login/oauth/authorize?scope=user&client_id=${CLIENT_ID}&scope=${SCOPE}`
 
     async function signIn(code: string) {
         setIsSigningIn(true)
 
         try {
-            const response = await api.post<AuthResponse>('/authenticate', { code })
+            const response = await api.post<AuthResponse>('/authenticate', { code, app: 'web' })
 
             const { token, user } = response.data
 
-            localStorage.setItem('@heatsup:token', token)
+            localStorage.setItem(TOKEN_STORAGE, token)
 
             api.defaults.headers.common.authorization = `Bearer ${token}`
 
@@ -65,7 +66,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     async function signOut() {
         setUser(null)
 
-        localStorage.removeItem('@heatsup:token')
+        localStorage.removeItem(TOKEN_STORAGE)
     }
 
     function cleanUrl() {
@@ -79,7 +80,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
 
     useEffect(() => {
-        const token = localStorage.getItem('@heatsup:token')
+        const token = localStorage.getItem(TOKEN_STORAGE)
 
         if (token) {
             api.defaults.headers.common.authorization = `Bearer ${token}`
@@ -105,14 +106,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }, [])
 
     return (
-        <AuthContext.Provider value={{ user, isSigningIn, signInUrl, signOut }}>
+        <AuthContext.Provider
+            value={{
+                user,
+                isSigningIn,
+                signInUrl,
+                signOut
+            }}
+        >
             {children}
         </AuthContext.Provider>
     )
-}
-
-export function useAuth() {
-    const context = useContext(AuthContext)
-
-    return context
 }

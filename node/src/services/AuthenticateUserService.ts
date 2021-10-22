@@ -14,27 +14,56 @@ interface IUserResponse {
 }
 
 class AuthenticateUserService {
-    async execute(code: string) {
+    async execute(code: string, app: string) {
         const url = "https://github.com/login/oauth/access_token"
 
-        const { data: accessTokenResponse } = await axios.post<IAccessTokenResponse>(url, null, {
-            params: {
-                client_id:     process.env.GITHUB_CLIENT_ID,
-                client_secret: process.env.GITHUB_CLIENT_SECRET,
-                code
-            },
-            headers: {
-                Accept: "application/json"
-            }
-        })
+        let accessToken: string
+
+        // const { data: accessTokenResponse } = await axios.post<IAccessTokenResponse>(url, null, {
+            // params: {
+                // client_id:     process.env.GITHUB_CLIENT_ID,
+                // client_secret: process.env.GITHUB_CLIENT_SECRET,
+                // code
+            // },
+            // headers: {
+                // Accept: "application/json"
+            // }
+        // })
+
+        console.log('Requisição vindo de: ', app)
+
+        if (app === 'web') {
+            const { data: accessTokenResponse } = await axios.post<IAccessTokenResponse>(url, null, {
+                params: {
+                    client_id:     process.env.GITHUB_CLIENT_ID_WEB,
+                    client_secret: process.env.GITHUB_CLIENT_SECRET_WEB,
+                    code
+                },
+                headers: { "Accept": "application/json" }
+            })
+
+            accessToken = accessTokenResponse.access_token
+
+        } else if (app === 'mobile') {
+            const { data: accessTokenResponse } = await axios.post<IAccessTokenResponse>(url, null, {
+                params: {
+                    client_id:     process.env.GITHUB_CLIENT_ID_MOBILE,
+                    client_secret: process.env.GITHUB_CLIENT_SECRET_MOBILE,
+                    code
+                },
+                headers: { "Accept": "application/json" }
+            })
+
+            accessToken = accessTokenResponse.access_token
+        } else if (app === 'node') {}
 
         try {
             var userResponse = await axios.get<IUserResponse>("https://api.github.com/user", {
-                headers: { authorization: `Bearer ${accessTokenResponse.access_token}` }
+                headers: { authorization: `Bearer ${accessToken}` }
             })
         } catch (err) {
             console.error(`
-                Token: ${accessTokenResponse.access_token}
+                Token: ${accessToken}
                 Response: ${userResponse}
                 Error: ${err.message}
             `)

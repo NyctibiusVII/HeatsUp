@@ -2,8 +2,8 @@
 
  import type { AppProps } from 'next/app'
 
- import { AuthProvider }  from '../hooks/useAuth'
- import { ThemeProvider } from 'next-themes'
+ import { AuthContextProvider } from '../contexts/AuthContext'
+ import { ThemeProvider }       from 'next-themes'
 
  import Head from 'next/head'
 
@@ -17,11 +17,11 @@ function MyApp({ Component, pageProps }: AppProps) {
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             </Head>
-            <AuthProvider>
+            <AuthContextProvider>
                 <ThemeProvider themes={['light', 'dark']} defaultTheme="dark">
                     <Component {...pageProps} />
                 </ThemeProvider>
-            </AuthProvider>
+            </AuthContextProvider>
         </>
     )
 }

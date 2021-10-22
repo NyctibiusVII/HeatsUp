@@ -12,10 +12,11 @@ const createMessageController    = new CreateMessageController()
 const getLast3MessagesController = new GetLast3MessagesController()
 const profileUserController      = new ProfileUserController()
 
-router.post('/authenticate', authenticateUserController.handle)
-router.post('/messages',     ensureAuthenticated, createMessageController.handle)
-
-router.get('/messages/last3', getLast3MessagesController.handle)
-router.get('/profile',        ensureAuthenticated, profileUserController.handle)
+router.post('/authenticate',   authenticateUserController.handle)
+router.post('/messages',       ensureAuthenticated, createMessageController.handle)
+router.get('/github',          authenticateUserController.redirectToAuthorize)
+router.get('/signin/callback', authenticateUserController.signToGithub)
+router.get('/messages/last3',  getLast3MessagesController.handle)
+router.get('/profile',         ensureAuthenticated, profileUserController.handle)
 
 export { router }
