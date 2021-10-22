@@ -3,5 +3,8 @@
 # config. pessoal
 .vscode
 
+# project wordcloud_dev em desenvolvimento
+/wordcloud_dev
+
 # readme TESTE...
 README_TEST.md
