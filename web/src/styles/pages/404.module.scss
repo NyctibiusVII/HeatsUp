@@ -1,0 +1,62 @@
+.container {
+    height: 100vh;
+
+    background: var(--cw-background);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    main {
+        section.webImage { display: none !important; }
+
+        h1 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        .backHome {
+            background-color: var(--code-pink);
+            color: var(--code-yellow);
+            font-weight: bold;
+
+            padding: 0.5rem;
+
+            display: flex;
+            justify-content: center;
+
+            transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            -webkit-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            -moz-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            -ms-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            -o-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+            border-radius: 0.313rem;
+            -webkit-border-radius: 0.313rem;
+            -moz-border-radius: 0.313rem;
+            -ms-border-radius: 0.313rem;
+            -o-border-radius: 0.313rem;
+
+            &:hover {
+                background-color: var(--code-yellow);
+                color: var(--code-pink);
+            }
+        }
+    }
+}
+
+
+
+/* Desktop */
+@media (min-width: 750px) {
+    .container main {
+        section.mobImage { display: none  !important; }
+        section.webImage { display: block !important; }
+
+        h1 {
+            text-align: end;
+            margin-left: 20rem;
+        }
+        .backHome { display: initial; }
+    }
+}

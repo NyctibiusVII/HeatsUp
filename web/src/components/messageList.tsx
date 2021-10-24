@@ -9,10 +9,6 @@ import io         from 'socket.io-client'
 import { motion } from 'framer-motion'
 import { api }    from '../services/api'
 
-import logoImage from '../../public/logo.svg'
-
-import Image from 'next/image'
-
 import styles from '../styles/components/messageList.module.scss'
 
 /* ---------------------------------------------------------------------- */
@@ -52,20 +48,13 @@ export function MessageList() {
 
     return (
         <div className={styles.messageListWrapper}>
-            <Image
-                src={logoImage}
-                alt="HeatsUp"
-                layout="fixed"
-                width={280}
-                height={24}
-            />
-
             <ul className={styles.messageList}>
                 { messages.map(message => {
                     return (
-                        <motion.li
+                        <motion.li whileHover="hover"
                             initial={{ opacity: 0, translateX: -50 }}
                             animate={{ opacity: 1, translateX: 0 }}
+                            variants={{ hover: { scale: 1.1, } }}
                             transition={{
                                 type: "spring",
                                 stiffness: 260,
