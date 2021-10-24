@@ -44,6 +44,7 @@ Projeto desenvolvido para fazer um esquenta pre-eventos. O projeto é um mural d
 * Restrição de (158) palavras de 'baixo escalão'
 * SQLite
 
+#### Milha Extra🔥
 <details>
     <summary>Desafios</summary>
 
