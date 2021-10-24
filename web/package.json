@@ -1,7 +1,7 @@
 {
   "name": "web",
   "version": "0.1.0",
-  "description": "Projeto web construído durante o NLW#07 com a Rocketseat/Diego Fernandes. HEATSUP: 'Chat de aquecimento pré evento'. 🤩💬🤸‍♀️",
+  "description": "Projeto web construído durante o NLW#07 com a Rocketseat/Diego Fernandes, Daniele Leão, Rodrigo Gonçalves e Rafael Camarda. HEATSUP: 'Chat de aquecimento pré evento'. 🤩💬🤸‍♀️",
   "private": true,
   "scripts": {
     "dev": "next dev",
