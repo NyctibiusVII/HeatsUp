@@ -1,9 +1,12 @@
 {
-  "name": "heatsup",
+  "name": "node",
   "version": "1.0.0",
-  "description": "Projeto web construído durante o NLW#07 com a Rocketseat/Diego Fernandes. HEATSUP: 'Chat de aquecimento pré evento'. 🤩💬🤸‍♀️",
-  "main": "index.ts",
+  "description": "Projeto web construído durante o NLW#07 com a Rocketseat/Diego Fernandes, Daniele Leão, Rodrigo Gonçalves e Rafael Camarda. HEATSUP: 'Chat de aquecimento pré evento'. 🤩💬🤸‍♀️",
+  "main": "index.js",
   "scripts": {
+    "postinstall": "npm run build",
+    "build": "tsc",
+    "start": "node dist/server.js",
     "dev-node": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
     "dev": "ts-node-dev --exit-child src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,16 +29,23 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "socket.io": "^4.3.1"
+    "socket.io": "^4.3.1",
+    "ts-node": "^10.4.0"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/jsonwebtoken": "^8.5.5",
+    "@types/node": "^16.11.4",
     "@types/socket.io": "^3.0.2",
     "prisma": "^3.3.0",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.4.4"
+  },
+  "engines": {
+    "node": "14.17.3",
+    "npm": "6.14.13",
+    "yarn": "1.22.17"
   }
 }

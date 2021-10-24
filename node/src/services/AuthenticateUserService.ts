@@ -55,7 +55,18 @@ class AuthenticateUserService {
             })
 
             accessToken = accessTokenResponse.access_token
-        } else if (app === 'node') {}
+        } else if (app === 'node') {
+            const { data: accessTokenResponse } = await axios.post<IAccessTokenResponse>(url, null, {
+                params: {
+                    client_id:     process.env.GITHUB_CLIENT_ID_NODE,
+                    client_secret: process.env.GITHUB_CLIENT_SECRET_NODE,
+                    code
+                },
+                headers: { "Accept": "application/json" }
+            })
+
+            accessToken = accessTokenResponse.access_token
+        }
 
         try {
             var userResponse = await axios.get<IUserResponse>("https://api.github.com/user", {
