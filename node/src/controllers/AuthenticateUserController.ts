@@ -2,6 +2,7 @@ import { Request, Response }       from 'express'
 import { AuthenticateUserService } from '../services/AuthenticateUserService'
 
 const SCOPE = 'read:user'
+const GITHUB_CLIENT = process.env.GITHUB_CLIENT_ID_NW
 
 class AuthenticateUserController {
     async handle(req: Request, res: Response) {
@@ -15,13 +16,13 @@ class AuthenticateUserController {
             return res.json(result)
         } catch (err) { return res.json({ Error: err }) }
     }
-    async redirectToAuthorize(request: Request, response: Response) {
-        response.redirect(`https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}&scope=${SCOPE}`)
+    async redirectToAuthorize(req: Request, res: Response) {
+        res.redirect(`https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT}&scope=${SCOPE}`)
     }
-    async signToGithub(request: Request, response: Response) {
-        const { code } = request.query
+    async signToGithub(req: Request, res: Response) {
+        const { code } = req.query
 
-        return response.json(code)
+        return res.json(code)
     }
 }
 
