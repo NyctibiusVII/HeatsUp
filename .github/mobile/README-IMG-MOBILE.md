@@ -10,7 +10,6 @@
     <img width="180px" src="./home.png">
     <img width="180px" src="./home-logged.png">
     <img width="180px" src="./home-logged-typing.png">
-    <img width="180px" src="./modal-logged-out.png">
     <img width="180px" src="./404.png">
 </div>
     <!-- IMGS
@@ -21,7 +20,6 @@
       home-logged
       home-logged-typing
       ------------------------------
-      modal-logged-out
       toast
       ------------------------------
       404
