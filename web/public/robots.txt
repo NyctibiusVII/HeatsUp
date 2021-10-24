@@ -1,6 +1,7 @@
 # *
 User-agent: *
 Allow: /
+Allow: /404
 Disallow: /__tests__
 
 # Host

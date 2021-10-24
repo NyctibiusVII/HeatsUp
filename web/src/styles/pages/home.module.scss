@@ -1,25 +1,36 @@
 .contentWrapper {
+    height: 100vh;
+
     background: var(--cw-background);
 
-    max-width: 75rem;
-    height: 100vh;
-
-    position: relative;
-
-    margin: 0 auto;
-
     display: grid;
-    grid-template-columns: 1fr 28.313rem;
-    column-gap: 7.5rem;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 0.1fr;
+    gap: 0% 5%;
 }
-.contentSigned::before {
-    content: '';
-    height: 100vh;
-    width: 26.25rem;
 
-    background: url('../../../public/background.svg') no-repeat;
-    background-size: cover;
 
-    position: absolute;
-    right: -12.5rem;
+
+/* Desktop */
+@media (min-width: 750px) {
+    .contentWrapper {
+        padding-bottom: 0;
+
+        grid-template-columns: 1fr 21.375rem 2rem;
+    }
+     .contentSigned::before {
+        content: "";
+        height: 100vh;
+        width: 26.25rem;
+
+        background: url('../../../public/background.svg') repeat;
+        background-size: cover;
+
+        position: fixed;
+        top: 0;
+        right: -8rem;
+
+        z-index: 200;
+     }
 }
+@media (min-width: 900px) { .contentWrapper {  column-gap: 7.5rem; } }

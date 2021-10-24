@@ -3,9 +3,13 @@
 import {
     createContext,
     PropsWithChildren,
+    useContext,
     useEffect,
     useState
 } from 'react'
+
+import { ToastContext } from './ToastContext'
+
 import { api } from '../services/api'
 
 /* ---------------------------------------------------------------------- */
@@ -40,6 +44,8 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
     const [ user,        setUser        ] = useState<User | null>(null)
     const [ isSigningIn, setIsSigningIn ] = useState(false)
 
+    const { successToast } = useContext(ToastContext)
+
     const CLIENT_ID     = 'f0263884eb3692b28c6d'
     const SCOPE         = 'read:user'
     const TOKEN_STORAGE = '@heatsup:token'
@@ -59,6 +65,8 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
             api.defaults.headers.common.authorization = `Bearer ${token}`
 
             setUser(user)
+
+            successToast({ context: 'signIn' })
         }
         catch (err) { console.log(err) }
         finally { setIsSigningIn(false) }
@@ -67,6 +75,8 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
         setUser(null)
 
         localStorage.removeItem(TOKEN_STORAGE)
+
+        successToast({ context: 'signOut' })
     }
 
     function cleanUrl() {

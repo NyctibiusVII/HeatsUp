@@ -2,18 +2,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    -webkit-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    -moz-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    -ms-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    -o-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -webkit-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -moz-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -ms-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -o-transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms, border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 :root {
-
     --white    : #fff;
+    --grey-25  : #fdfdf0;
+    --grey-50  : #F5F2F7;
+    --grey-75  : #f3f3e8;
     --grey-100 : #E1E1E6;
+    --grey-150 : #DEDED9;
     --grey-200 : #C4C4CC;
+    --grey-250 : #B8B8B4;
     --grey-300 : #8D8D99;
     --grey-400 : #29292E;
 
@@ -24,6 +27,7 @@
     --black-500 : #09090A;
     --black     : #000;
     --black-gradient-100 : #12121400;
+    --black-gradient-200 : #00000017;
 
     --yellow : #FFCD1E;
     --orange : #FF7A29;
@@ -31,11 +35,15 @@
     --green  : #1B873F;
     --deg-py : linear-gradient(104.3deg, var(--pink) 0.48%, var(--yellow) 100%);
 
+    --yellow-50  : #ecbe16;
+    --yellow-100 : #dfb314;
+
+    --pink-50  : #e4007d;
     --pink-100 : #ff3d6e;
 
     /* ~~~~~~~~~~~~~~~~~ Geral ~~~~~~~~~~~~~~~~~ */
-    --shadow-5p      : rgb(0 0 0 / 5%);
-    --shadow-1p      : rgb(0 0 0 / 1%);
+    --shadow-5p : rgb(0 0 0 / 5%);
+    --shadow-1p : rgb(0 0 0 / 1%);
 
     /* ~~~~~~~~~~~~~~~ JSON Code ~~~~~~~~~~~~~~~ */
     /* Colors ~ Dracula Theme */
@@ -53,57 +61,83 @@
 }
 [data-theme='light'] {
     /* ~~~~~~~~~~~~~~~~~ Geral ~~~~~~~~~~~~~~~~~ */
-    --background               : var(--black-400);
-    --line                     : var(--code-selection);
-    --title                    : var(--blue-1200);
-    --text                     : var(--code-foreground);
+    --background               : var(--white);
+    --text                     : var(--code-background);
     /* Scrollbar ------------ */
     --scrollbar-bg             : transparent;
-    --scrollbar-thumb-bg       : var(--pink);
+    --scrollbar-thumb-bg       : var(--yellow);
     --scrollbar-corner-bg      : transparent;
+    /* Selection Mouse ------ */
+    --bg-selection-mouse       : var(--code-pink);
+    --fg-selection-mouse       : var(--code-yellow);
     /* Theme Changer ------------ */
-    --tc-background            : var(--grey-100);
+    --tc-background            : var(--code-foreground);
+
+    /* ~~~~~~~~~~~~~~~~ Header ~~~~~~~~~~~~~~~~~ */
+    --h-background      : var(--white);
+    --h-box-shadow      : var(--shadow-1p);
+    --h-bg-sign-out-btn : transparent;
+    --h-fg-sign-out-btn : var(--code-background);
+
+    /* ~~~~~~~~~~~~~~ User Image ~~~~~~~~~~~~~~~ */
+    --ui-bg-deg     : var(--deg-py);
+    --ui-border-img : var(--code-foreground);
 
     /* ~~~~~~~~~~~~ Content Wrapper ~~~~~~~~~~~~ */
-    --cw-background : var(--black-400);
+    --cw-background : var(--white);
 
     /* ~~~~~~~~~~~~~~~ Login Box ~~~~~~~~~~~~~~~ */
-    --lb-background        : var(--black-300);
+    --lb-background        : var(--code-foreground);
     --lb-background-before : radial-gradient(50% 50% at 50% 50%, var(--pink-100) 0%, var(--black-gradient-100) 100%);
 
     /* ~~~~~~~~~~~~~ Github Button ~~~~~~~~~~~~~ */
-    --gb-background : var(--yellow);
-    --gb-foreground : var(--black-500);
-
-    /* ~~~~~~~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~ */
-    --m-border-user-img : var(--black-400);
+    --gb-background       : var(--yellow);
+    --gb-background-hover : var(--yellow-50);
+    --gb-foreground       : var(--black-500);
 
     /* ~~~~~~~~~~~~~ Message Form ~~~~~~~~~~~~~~ */
-    --mf-background                : var(--black-200);
+    --mf-background                : var(--code-foreground);
     --mf-bg-btn-sign-out           : transparent;
     --mf-fg-btn-sign-out           : var(--grey-200);
     --mf-border-user-img           : var(--black-400);
     --mf-fg-username               : var(--grey-200);
-    --mf-bg-sm-form                : var(--black-100);
-    --mf-bg-sm-label               : var(--grey-400);
+    --mf-bg-sm-form                : var(--grey-75);
+    --mf-box-shadow-outset-sm-form : var(--black-gradient-200);
+    --mf-box-shadow-inset-sm-form  : var(--white);
+    --mf-bg-sm-label               : var(--grey-25);
     --mf-bg-sm-txtarea             : transparent;
-    --mf-fg-sm-txtarea             : var(--grey-100);
-    --mf-fg-sm-txtarea-placeholder : var(--grey-300);
+    --mf-bg-sm-txtarea-mobile      : var(--grey-75);
+    --mf-fg-sm-txtarea             : var(--code-background);
+    --mf-fg-sm-txtarea-placeholder : var(--grey-200);
     --mf-bg-sm-btn                 : var(--pink);
+    --mf-bg-sm-btn-hover           : var(--pink-50);
     --mf-fg-sm-btn                 : var(--white);
+    --mf-bg-max-char               : var(--grey-100);
+    --mf-fg-max-char               : var(--grey-200);
 }
 [data-theme='dark'] {
     /* ~~~~~~~~~~~~~~~~~ Geral ~~~~~~~~~~~~~~~~~ */
     --background               : var(--black-400);
-    --line                     : var(--code-selection);
-    --title                    : var(--blue-1200);
     --text                     : var(--code-foreground);
     /* Scrollbar ------------ */
     --scrollbar-bg             : transparent;
     --scrollbar-thumb-bg       : var(--pink);
     --scrollbar-corner-bg      : transparent;
+    /* Selection Mouse ------ */
+    --bg-selection-mouse       : var(--code-yellow);
+    --fg-selection-mouse       : var(--code-pink);
     /* Theme Changer ------------ */
-    --tc-background            : var(--grey-100);
+    --tc-background            : var(--black-100);
+
+    /* ~~~~~~~~~~~~~~~~ Header ~~~~~~~~~~~~~~~~~ */
+    --h-background      : var(--black-400);
+    --h-box-shadow      : var(--shadow-5p);
+    --h-bg-sign-out-btn : transparent;
+    --h-fg-sign-out-btn : var(--grey-100);
+
+    /* ~~~~~~~~~~~~~~ User Image ~~~~~~~~~~~~~~~ */
+    --ui-bg-deg     : var(--deg-py);
+    --ui-border-img : var(--black-400);
 
     /* ~~~~~~~~~~~~ Content Wrapper ~~~~~~~~~~~~ */
     --cw-background : var(--black-400);
@@ -113,11 +147,9 @@
     --lb-background-before : radial-gradient(50% 50% at 50% 50%, var(--pink-100) 0%, var(--black-gradient-100) 100%);
 
     /* ~~~~~~~~~~~~~ Github Button ~~~~~~~~~~~~~ */
-    --gb-background : var(--yellow);
-    --gb-foreground : var(--black-500);
-
-    /* ~~~~~~~~~~~~~~~~ Message ~~~~~~~~~~~~~~~~ */
-    --m-border-user-img : var(--black-400);
+    --gb-background       : var(--yellow);
+    --gb-background-hover : var(--yellow-100);
+    --gb-foreground       : var(--black-500);
 
     /* ~~~~~~~~~~~~~ Message Form ~~~~~~~~~~~~~~ */
     --mf-background                : var(--black-200);
@@ -126,12 +158,18 @@
     --mf-border-user-img           : var(--black-400);
     --mf-fg-username               : var(--grey-200);
     --mf-bg-sm-form                : var(--black-100);
+    --mf-box-shadow-outset-sm-form : var(--black-gradient-200);
+    --mf-box-shadow-inset-sm-form  : transparent;
     --mf-bg-sm-label               : var(--grey-400);
     --mf-bg-sm-txtarea             : transparent;
+    --mf-bg-sm-txtarea-mobile      : var(--black-100);
     --mf-fg-sm-txtarea             : var(--grey-100);
     --mf-fg-sm-txtarea-placeholder : var(--grey-300);
     --mf-bg-sm-btn                 : var(--pink);
+    --mf-bg-sm-btn-hover           : var(--pink-50);
     --mf-fg-sm-btn                 : var(--white);
+    --mf-bg-max-char               : var(--grey-400);
+    --mf-fg-max-char               : var(--grey-300);
 }
 
 
@@ -139,6 +177,8 @@
 body {
     background-color: var(--background);
     color: var(--text);
+
+    cursor: url(https://cdn.custom-cursor.com/db/8400/32/lifestyle-origami-ladybug-cursor.png), default!important;
 }
 
 body,
@@ -146,7 +186,9 @@ button,
 input,
 textarea { font: 400 1rem "inter", sans-serif; }
 
-button { cursor: pointer; }
+button, a {
+    cursor: url(https://cdn.custom-cursor.com/db/8399/32/lifestyle-origami-ladybug-pointer.png), pointer!important;
+}
 
 a {
     color: inherit;
@@ -159,6 +201,52 @@ ul {
     margin-top: 0;
     margin-bottom: 0;
 }
+
+::selection {
+    background-color: var(--bg-selection-mouse);
+    color: var(--fg-selection-mouse);
+}
+
+
+
+/*
+ ________________
+|Px	   |Percent  |
+|______|_________|
+| 5px  |  31.25% |
+| 6px  |  37.50% |
+| 7px  |  43.75% |
+| 8px  |  50.00% |
+| 9px  |  56.25% |
+| 10px |  62.50% |
+| 11px |  68.75% |
+| 12px |  75.00% |
+| 13px |  81.25% |
+| 14px |  87.50% |
+| 15px |  93.75% |
+| 16px | 100.00% |
+| 17px | 106.25% |
+| 18px | 112.50% |
+| 19px | 118.75% |
+| 20px | 125.00% |
+| 21px | 131.25% |
+| 22px | 137.50% |
+| 23px | 143.75% |
+| 24px | 150.00% |
+| 25px | 156.25% |
+------------------
+*/
+
+// - min = de N° pra cima
+// - max = de N° pra baixo
+
+@media (max-width: 1300px) { html { font-size: 100.00%; } }
+@media (max-width: 1200px) { html { font-size:  93.75%; } }
+@media (max-width: 1000px) { html { font-size:  81.25%; } }
+@media (max-width:  749px) { html { font-size: 112.50%; } }
+@media (max-width:  650px) { html { font-size: 106.25%; } }
+@media (max-width:  500px) { html { font-size:  93.75%; } }
+@media (max-width:  400px) { html { font-size:  87.50%; } }
 
 
 
@@ -178,7 +266,7 @@ ul {
     width:  0.438rem;
     background: var(--scrollbar-bg);
 
-    :horizontal {
+    &:horizontal {
         height: 0.438rem;
         background: var(--scrollbar-bg);
     }

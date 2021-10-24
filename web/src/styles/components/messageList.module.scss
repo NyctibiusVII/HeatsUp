@@ -1,13 +1,10 @@
 .messageListWrapper {
+    padding: 5rem 1rem;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-
-    // Next Image
-    > div {
-        margin: 2rem 0;
-    }
 
     .messageList {
         list-style: none;
@@ -21,8 +18,6 @@
         .message {
             max-width: 27.5rem;
 
-            &:nth-child(2) { margin-left: 5rem; }
-
             .messageContent {
                 font-size: 1.25rem;
                 line-height: 1.75rem;
@@ -30,11 +25,12 @@
 
             .messageUser {
                 margin-top: 1rem;
+
                 display: flex;
                 align-items: center;
 
                 .userImage {
-                    background: var(--deg-py);
+                    background: var(--ui-bg-deg);
                     line-height: 0;
 
                     padding: 0.125rem;
@@ -49,7 +45,7 @@
                         width: 1.875rem;
                         height: 1.875rem;
 
-                        border: 0.25rem solid var(--m-border-user-img);
+                        border: 0.25rem solid var(--ui-border-img);
 
                         border-radius: 50%;
                         -webkit-border-radius: 50%;
@@ -68,3 +64,12 @@
         }
     }
 }
+
+
+
+/* Desktop */
+@media (min-width:  500px) { .messageListWrapper { padding: 5rem 4rem; } }
+@media (min-width:  550px) { .messageListWrapper .messageList .message:nth-child(2) { margin-left: 5rem; } }
+@media (min-width:  650px) { .messageListWrapper { align-items: center; .messageList .message:nth-child(2) { margin-left: 0; } } }
+@media (min-width:  750px) { .messageListWrapper { padding: 5rem 0 5rem 4rem; align-items: initial; .messageList .message:nth-child(2) { margin-left: 5rem; } } }
+@media (min-width: 1200px) { .messageListWrapper { padding-left: 9rem; } }

@@ -1,0 +1,74 @@
+.container {
+    width: 100vw;
+
+    background-color: var(--h-background);
+    box-shadow: 0 1rem 1rem 0 var(--h-box-shadow);
+
+    padding: 0.5rem 1rem;
+
+    position: fixed;
+    top: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 100;
+
+    > button { display: none; }
+
+    .logoImage {
+        width: 11rem;
+
+        padding-right: 1rem;
+    }
+    .logout {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .signOutButton {
+            background-color: var(--h-bg-sign-out-btn);
+            color: var(--h-fg-sign-out-btn);
+            border: 0;
+            font-size: 0.85rem;
+        }
+        .userImage {
+            background: var(--ui-bg-deg);
+            line-height: 0;
+
+            padding: 0.125rem;
+
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+
+            /* Next Image */
+            > div {
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+            }
+        }
+    }
+}
+
+
+
+/* Desktop */
+@media (min-width: 500px) { .container { padding-left: 4rem; } }
+@media (min-width: 750px) {
+    .container {
+        justify-content: flex-start;
+
+        > button { display: block; }
+
+        .logoImage { width: 15rem; margin: 1rem 0; }
+        .logout { display: none; }
+    }
+}
+@media (min-width: 1200px) { .container { padding-left: 9rem; } }
