@@ -24,11 +24,11 @@ type Message = {
 
 let messagesQueue: Message[] = []
 
-const socket = io('http://localhost:4000')
+const socket = io('https://heatsup-db.herokuapp.com')
 socket.on('new_message', (newMessage) => { messagesQueue.push(newMessage) })
 
 export function MessageList() {
-    const [messages, setMessages] = useState<Message[]>([])
+    const [ messages, setMessages ] = useState<Message[]>([])
 
     useEffect(() => {
         api.get<Message[]>('messages/last3').then(response => { setMessages(response.data) })
