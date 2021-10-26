@@ -74,15 +74,14 @@ DESKTOP:
         ✔ - +Animações (framer-motion)
         - Cores:
             ✔ - Seleção do mouse (:selection)
-            ✖ - adaptadas para daltônicos
+            ✖ - Adaptadas para daltônicos
     ✔ - Toast
     ✔ - ER (Expressão Regular) no input para restringir palavras proibidas
     ✔ - Perfil no 'head' da web
     ✔ - Ponteiro do mouse personalizado
-    - Telas:
+    ✔ - Telas:
         ✔ - Home
         ✔ - Home/Logged
-        ✖ - Profile (crachá compartilhável)
         ✔ - 404
 
 MOBILE:
@@ -95,14 +94,12 @@ MOBILE:
             ✖ - Imagens adaptadas para o 'light e dark'
         ✔ - +Animações (framer-motion)
         ✖ - Cores:
-            ✖ - adaptadas para daltônicos
-    - Telas:
+            ✖ - Adaptadas para daltônicos
+    ✔ - Telas:
         ✔ - splash
         ✔ - Home
         ✔ - Home/Logged
-        ✖ - Profile (crachá compartilhável)
     ✖ - ER (Expressão Regular) no input para restringir palavras proibidas
-    ✔ - Toast
 
 NODE:
     ✔ - NO AR (Online / Heroku)
@@ -203,7 +200,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
       404
       ------------------------------
     -->
-    
+
 ### Exemplo de uso do Site
 <img src="./.github/use-heatsup.gif" alt="Uso do site"  width="50%"/>
 
